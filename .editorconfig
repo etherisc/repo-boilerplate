@@ -1,0 +1,143 @@
+# EditorConfig helps maintain consistent coding styles
+# for multiple developers working on the same project
+# across various editors and IDEs.
+# 
+# For more information, visit: https://editorconfig.org
+
+root = true
+
+# Universal settings for all files
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 100
+
+# Markdown files - preserve trailing whitespace for line breaks
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 120
+
+# YAML files
+[*.{yml,yaml}]
+indent_size = 2
+
+# JSON files
+[*.json]
+indent_size = 2
+
+# XML files
+[*.xml]
+indent_size = 2
+
+# Web technologies (uncomment if relevant)
+# [*.{html,htm}]
+# indent_size = 2
+
+# [*.css]
+# indent_size = 2
+
+# [*.{js,jsx,ts,tsx}]
+# indent_size = 2
+
+# [*.{scss,sass,less}]
+# indent_size = 2
+
+# [*.vue]
+# indent_size = 2
+
+# [*.svelte]
+# indent_size = 2
+
+# Python (uncomment if relevant)
+# [*.py]
+# indent_style = space
+# indent_size = 4
+# max_line_length = 88
+
+# Go (uncomment if relevant)
+# [*.go]
+# indent_style = tab
+# indent_size = 4
+
+# Java (uncomment if relevant)
+# [*.java]
+# indent_style = space
+# indent_size = 4
+
+# C/C++ (uncomment if relevant)
+# [*.{c,cpp,h,hpp}]
+# indent_style = space
+# indent_size = 4
+
+# C# (uncomment if relevant)
+# [*.cs]
+# indent_style = space
+# indent_size = 4
+
+# PHP (uncomment if relevant)
+# [*.php]
+# indent_style = space
+# indent_size = 4
+
+# Ruby (uncomment if relevant)
+# [*.rb]
+# indent_style = space
+# indent_size = 2
+
+# Rust (uncomment if relevant)
+# [*.rs]
+# indent_style = space
+# indent_size = 4
+
+# Swift (uncomment if relevant)
+# [*.swift]
+# indent_style = space
+# indent_size = 4
+
+# Kotlin (uncomment if relevant)
+# [*.kt]
+# indent_style = space
+# indent_size = 4
+
+# Shell scripts
+[*.{sh,bash,zsh}]
+indent_style = space
+indent_size = 2
+
+# Configuration files
+[*.{toml,ini,cfg}]
+indent_size = 2
+
+# SQL files
+[*.sql]
+indent_style = space
+indent_size = 2
+
+# Dockerfile
+[Dockerfile*]
+indent_style = space
+indent_size = 2
+
+# Makefile - must use tabs
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+[*.mk]
+indent_style = tab
+indent_size = 4
+
+# Batch files (Windows)
+[*.{bat,cmd}]
+end_of_line = crlf
+indent_style = space
+indent_size = 2
+
+# PowerShell
+[*.ps1]
+indent_style = space
+indent_size = 2 

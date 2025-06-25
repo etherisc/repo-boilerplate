@@ -1,0 +1,152 @@
+{
+  "name": "Project Development Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev-environment",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+
+  // Features - Uncomment and configure based on your tech stack
+  "features": {
+    // Node.js for web development
+    // "ghcr.io/devcontainers/features/node:1": {
+    //   "version": "20",
+    //   "installTools": false
+    // },
+    
+    // Python for data science/backend
+    // "ghcr.io/devcontainers/features/python:1": {
+    //   "version": "3.11"
+    // },
+    
+    // Go for backend services
+    // "ghcr.io/devcontainers/features/go:1": {
+    //   "version": "latest"
+    // },
+    
+    // Java for enterprise applications
+    // "ghcr.io/devcontainers/features/java:1": {
+    //   "version": "17"
+    // },
+    
+    // Rust for systems programming
+    // "ghcr.io/devcontainers/features/rust:1": {
+    //   "version": "latest"
+    // },
+    
+    // .NET for Microsoft stack
+    // "ghcr.io/devcontainers/features/dotnet:1": {
+    //   "version": "8.0"
+    // },
+    
+    // Docker for containerization
+    // "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    
+    // Git (usually included by default)
+    "ghcr.io/devcontainers/features/git:1": {},
+    
+    // GitHub CLI for repository management
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // Load environment variables from .env file
+  "runArgs": ["--env-file", ".devcontainer/.env"],
+
+  // Extensions - Customize based on your tech stack
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Universal extensions
+        "ms-vscode.vscode-typescript-next",
+        "editorconfig.editorconfig",
+        "bradlc.vscode-tailwindcss",
+        
+        // Uncomment based on your tech stack:
+        
+        // Web Development
+        // "esbenp.prettier-vscode",
+        // "dbaeumer.vscode-eslint",
+        // "bradlc.vscode-tailwindcss",
+        
+        // Python
+        // "ms-python.python",
+        // "ms-python.pylint",
+        // "ms-python.black-formatter",
+        
+        // Go
+        // "golang.go",
+        
+        // Java
+        // "redhat.java",
+        // "vscjava.vscode-java-pack",
+        
+        // Rust
+        // "rust-lang.rust-analyzer",
+        
+        // .NET
+        // "ms-dotnettools.csharp",
+        
+        // Database
+        // "ms-mssql.mssql",
+        // "postgresql.postgresql",
+        
+        // Docker
+        // "ms-azuretools.vscode-docker",
+        
+        // Markdown
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        // Uncomment and configure based on your package manager:
+        // "npm.packageManager": "pnpm",  // For Node.js with pnpm
+        // "npm.packageManager": "yarn",  // For Node.js with yarn
+        // "python.defaultInterpreterPath": "/usr/local/bin/python3", // For Python
+        
+        // Editor settings
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true
+      }
+    }
+  },
+
+  // Port forwarding - Configure based on your application
+  "forwardPorts": [
+    // Common development ports - uncomment as needed:
+    // 3000,  // React dev server
+    // 3001,  // Backend API
+    // 5173,  // Vite dev server
+    // 8000,  // Django/Flask
+    // 8080,  // Spring Boot
+    // 5000   // General web server
+  ],
+  "portsAttributes": {
+    // Example port configurations:
+    // "3000": {
+    //   "label": "Frontend Dev Server",
+    //   "onAutoForward": "notify"
+    // },
+    // "3001": {
+    //   "label": "Backend API",
+    //   "onAutoForward": "notify"
+    // }
+  },
+  
+  // Run post-create script to install dependencies and setup environment
+  "postCreateCommand": "bash .devcontainer/scripts/post-create.sh",
+  
+  // User configuration
+  "remoteUser": "vscode",
+
+  // Volume mounts - Configure based on your needs
+  "mounts": [
+    // Examples:
+    // "source=project-node-modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+    // "source=project-venv,target=${containerWorkspaceFolder}/.venv,type=volume",
+    // "source=${localWorkspaceFolder}/.devcontainer/data,target=/workspace/data,type=bind"
+  ]
+} 

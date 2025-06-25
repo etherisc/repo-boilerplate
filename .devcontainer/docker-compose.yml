@@ -1,0 +1,164 @@
+version: '3.8'
+
+services:
+  dev-environment:
+    # Base image - choose based on your tech stack
+    # Common options:
+    # - mcr.microsoft.com/devcontainers/base:ubuntu (Universal base)
+    # - mcr.microsoft.com/devcontainers/javascript-node:20 (Node.js)
+    # - mcr.microsoft.com/devcontainers/python:3.11 (Python)
+    # - mcr.microsoft.com/devcontainers/go:1.21 (Go)
+    # - mcr.microsoft.com/devcontainers/java:17 (Java)
+    # - mcr.microsoft.com/devcontainers/dotnet:8.0 (C#/.NET)
+    image: mcr.microsoft.com/devcontainers/base:ubuntu
+    
+    # Container name
+    container_name: project-dev
+    
+    # Keep container running
+    command: sleep infinity
+    
+    # Volume mounts
+    volumes:
+      - ../..:/workspace:cached
+      
+      # Additional volumes based on tech stack:
+      # For Node.js projects:
+      # - project-node-modules:/workspace/node_modules
+      # 
+      # For Python projects:
+      # - project-venv:/workspace/.venv
+      # - project-pip-cache:/home/vscode/.cache/pip
+      #
+      # For Go projects:
+      # - project-go-pkg:/go/pkg
+      #
+      # For Java projects:
+      # - project-maven-cache:/home/vscode/.m2
+      # - project-gradle-cache:/home/vscode/.gradle
+      #
+      # For .NET projects:
+      # - project-nuget-cache:/home/vscode/.nuget
+    
+    # Environment variables
+    environment:
+      # Common environment variables
+      - TERM=xterm-256color
+      - COLORTERM=truecolor
+      
+      # Tech stack specific variables:
+      # For Node.js:
+      # - NODE_ENV=development
+      # - NPM_CONFIG_COLOR=always
+      #
+      # For Python:
+      # - PYTHONUNBUFFERED=1
+      # - PYTHONDONTWRITEBYTECODE=1
+      #
+      # For Go:
+      # - GOPROXY=https://proxy.golang.org,direct
+      # - GOSUMDB=sum.golang.org
+      #
+      # For Java:
+      # - MAVEN_OPTS=-Dmaven.repo.local=/home/vscode/.m2/repository
+    
+    # Port mapping - uncomment based on your application
+    # ports:
+    #   - "3000:3000"   # Frontend (React, Vue, Angular)
+    #   - "3001:3001"   # Backend API
+    #   - "5173:5173"   # Vite dev server
+    #   - "8000:8000"   # Django/Flask
+    #   - "8080:8080"   # Spring Boot
+    #   - "5000:5000"   # General web server
+    #   - "5432:5432"   # PostgreSQL
+    #   - "3306:3306"   # MySQL
+    #   - "6379:6379"   # Redis
+    #   - "27017:27017" # MongoDB
+    
+    # Network mode
+    network_mode: "host"
+    
+    # Security and capabilities
+    privileged: false
+    # cap_add:
+    #   - SYS_PTRACE  # For debugging
+    
+    # Working directory
+    working_dir: /workspace
+    
+    # User configuration
+    user: vscode
+    
+    # Health check (optional)
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+
+  # Additional services based on your tech stack:
+  
+  # PostgreSQL database
+  # postgres:
+  #   image: postgres:15
+  #   container_name: project-postgres
+  #   environment:
+  #     POSTGRES_USER: devuser
+  #     POSTGRES_PASSWORD: devpass
+  #     POSTGRES_DB: project_dev
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  
+  # Redis cache
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: project-redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  
+  # MongoDB
+  # mongodb:
+  #   image: mongo:7
+  #   container_name: project-mongodb
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: devuser
+  #     MONGO_INITDB_ROOT_PASSWORD: devpass
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongodb-data:/data/db
+
+# Volumes
+volumes:
+  # Tech stack specific volumes:
+  
+  # For Node.js:
+  # project-node-modules:
+  
+  # For Python:
+  # project-venv:
+  # project-pip-cache:
+  
+  # For Go:
+  # project-go-pkg:
+  
+  # For Java:
+  # project-maven-cache:
+  # project-gradle-cache:
+  
+  # For .NET:
+  # project-nuget-cache:
+  
+  # For databases:
+  # postgres-data:
+  # redis-data:
+  # mongodb-data:
+
+# Networks (if needed)
+# networks:
+#   project-network:
+#     driver: bridge 
