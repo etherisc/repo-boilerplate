@@ -20,7 +20,7 @@ services:
     
     # Volume mounts
     volumes:
-      - ../..:/workspace:cached
+      - ..:/workspace:cached
       
       # Additional volumes based on tech stack:
       # For Node.js projects:
@@ -132,8 +132,8 @@ services:
   #   volumes:
   #     - mongodb-data:/data/db
 
-# Volumes
-volumes:
+# Volumes - uncomment when needed
+# volumes:
   # Tech stack specific volumes:
   
   # For Node.js:

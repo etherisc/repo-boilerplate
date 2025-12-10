@@ -48,8 +48,8 @@
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
 
-  // Load environment variables from .env file
-  "runArgs": ["--env-file", ".devcontainer/.env"],
+  // Load environment variables from .env file (create from env.template first)
+  // "runArgs": ["--env-file", ".devcontainer/.env"],
 
   // Extensions - Customize based on your tech stack
   "customizations": {
